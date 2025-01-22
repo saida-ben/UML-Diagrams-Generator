@@ -1,4 +1,4 @@
-package org.mql.java.reflection.models;
+package org.mql.java.models;
 
 import java.util.ArrayList;
 import java.util.List;

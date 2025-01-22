@@ -1,4 +1,4 @@
-package org.mql.java.reflection.models;
+package org.mql.java.models;
 
 public class InterfaceInfo {
 	private String name;

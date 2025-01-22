@@ -1,7 +1,5 @@
 package org.mql.java.reflection;
 
-import org.mql.java.reflection.models.*;
-
 import java.io.File;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.*;
@@ -10,6 +8,8 @@ import java.net.URL;
 import java.net.URLClassLoader;
 import java.util.HashMap;
 import java.util.Map;
+
+import org.mql.java.models.*;
 
 public class Extractor {
 

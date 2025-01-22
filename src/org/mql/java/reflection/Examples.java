@@ -2,11 +2,11 @@ package org.mql.java.reflection;
 
 import javax.swing.SwingUtilities;
 
-import org.mql.java.reflection.models.ClassInfo;
-import org.mql.java.reflection.models.FieldModel;
-import org.mql.java.reflection.models.MethodInfo;
-import org.mql.java.reflection.models.PackageInfo;
-import org.mql.java.reflection.models.Project;
+import org.mql.java.models.ClassInfo;
+import org.mql.java.models.FieldModel;
+import org.mql.java.models.MethodInfo;
+import org.mql.java.models.PackageInfo;
+import org.mql.java.models.Project;
 import org.mql.java.ui.UMLDiagramViewer;
 import org.mql.java.xml.XMLWriter;
 

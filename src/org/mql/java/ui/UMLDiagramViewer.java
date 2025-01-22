@@ -2,12 +2,8 @@ package org.mql.java.ui;
 
 import javax.swing.*;
 
+import org.mql.java.models.*;
 import org.mql.java.reflection.Extractor;
-import org.mql.java.reflection.models.ClassInfo;
-import org.mql.java.reflection.models.PackageInfo;
-import org.mql.java.reflection.models.Project;
-import org.mql.java.reflection.models.*;
-
 
 import java.awt.*;
 import java.awt.event.ActionEvent;

@@ -1,16 +1,15 @@
 package org.mql.java.xml;
 
+import org.mql.java.models.ClassInfo;
+import org.mql.java.models.MethodInfo;
+import org.mql.java.models.PackageInfo;
+import org.mql.java.models.Project;
 import org.w3c.dom.*;
 import javax.xml.parsers.*;
 import javax.xml.transform.*;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import java.io.File;
-
-import org.mql.java.reflection.models.ClassInfo;
-import org.mql.java.reflection.models.MethodInfo;
-import org.mql.java.reflection.models.PackageInfo;
-import org.mql.java.reflection.models.Project; // Assurez-vous d'importer le modèle Project
 
 public class XMLWriter {
 

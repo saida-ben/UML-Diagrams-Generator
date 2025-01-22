@@ -1,6 +1,6 @@
 package org.mql.java.reflection;
 
-import org.mql.java.reflection.models.*;
+import org.mql.java.models.*;
 
 public class ConsoleDisplay {
 
