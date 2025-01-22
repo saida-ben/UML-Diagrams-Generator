@@ -1,10 +1,10 @@
 package org.mql.java.reflection.models;
 
-public class Field {
+public class FieldModel  {
     private String name;
     private String type;
 
-    public Field(String name, String type) {
+    public FieldModel(String name, String type) {
         this.name = name;
         this.type = type;
     }

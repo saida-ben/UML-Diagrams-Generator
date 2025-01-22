@@ -2,19 +2,18 @@ package org.mql.java.reflection.models;
 
 public class AnnotationInfo {
 	private String name;
-	
-	public AnnotationInfo() {}
-	
+	    public AnnotationInfo(String name) {
+	        this.name = name;
+	    }
 
-	public AnnotationInfo(String name) {
-		super();
-		this.name = name;
-	}
-
-
-	public String getName() {
+	    @Override
+	    public String toString() {
+	        return "@" + name;
+	    } 
+	    
+	   String getName() {
 		return name;
-	}
+	   }
 
 	public void setName(String name) {
 		this.name = name;

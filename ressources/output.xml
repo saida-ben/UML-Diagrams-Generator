@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Project>
+    <ProjectName>C:\Users\user\eclipse-workspace\p04-java-xml-parsers</ProjectName>
+    <Packages>
+        <Package name="org.mql.java.xml">
+            <Class name="AuthorsParser">
+                <Superclass>java.lang.Object</Superclass>
+                <Methods>
+                    <Method name="parse">java.util.List</Method>
+                </Methods>
+            </Class>
+            <Class name="Examples">
+                <Superclass>java.lang.Object</Superclass>
+                <Methods>
+                    <Method name="main">void</Method>
+                    <Method name="exp01">void</Method>
+                </Methods>
+            </Class>
+            <Class name="XMLNode">
+                <Superclass>java.lang.Object</Superclass>
+                <Methods>
+                    <Method name="child">org.mql.java.xml.XMLNode</Method>
+                    <Method name="getName">java.lang.String</Method>
+                    <Method name="getValue">java.lang.String</Method>
+                    <Method name="intAttribute">int</Method>
+                    <Method name="attribute">java.lang.String</Method>
+                    <Method name="children">[Lorg.mql.java.xml.XMLNode;</Method>
+                </Methods>
+            </Class>
+            <Class name="XMLNode2">
+                <Superclass>java.lang.Object</Superclass>
+                <Methods>
+                    <Method name="child">org.mql.java.xml.XMLNode</Method>
+                    <Method name="getName">java.lang.String</Method>
+                    <Method name="getValue">java.lang.String</Method>
+                    <Method name="setValue">void</Method>
+                    <Method name="getAttributes">java.util.Map</Method>
+                    <Method name="intAttribute">int</Method>
+                    <Method name="removeAttribute">void</Method>
+                    <Method name="hasAttribute">boolean</Method>
+                    <Method name="childAtIndex">org.mql.java.xml.XMLNode</Method>
+                    <Method name="getChildrenText">java.lang.String</Method>
+                    <Method name="attribute">java.lang.String</Method>
+                    <Method name="removeChild">void</Method>
+                    <Method name="children">[Lorg.mql.java.xml.XMLNode;</Method>
+                </Methods>
+            </Class>
+        </Package>
+        <Package name="org.mql.java.xml.models">
+            <Class name="Author">
+                <Superclass>java.lang.Object</Superclass>
+                <Methods>
+                    <Method name="getName">java.lang.String</Method>
+                    <Method name="toString">java.lang.String</Method>
+                    <Method name="setName">void</Method>
+                    <Method name="getId">int</Method>
+                    <Method name="setBirthday">void</Method>
+                    <Method name="setTechnology">void</Method>
+                    <Method name="getBirthday">org.mql.java.xml.models.Date</Method>
+                    <Method name="getTechnology">java.lang.String</Method>
+                    <Method name="setCountry">void</Method>
+                    <Method name="setId">void</Method>
+                    <Method name="getCountry">java.lang.String</Method>
+                </Methods>
+            </Class>
+            <Class name="Date">
+                <Superclass>java.lang.Object</Superclass>
+                <Methods>
+                    <Method name="toString">java.lang.String</Method>
+                    <Method name="getDay">int</Method>
+                    <Method name="setDay">void</Method>
+                    <Method name="getMonth">int</Method>
+                    <Method name="setMonth">void</Method>
+                    <Method name="getYear">int</Method>
+                    <Method name="setYear">void</Method>
+                </Methods>
+            </Class>
+        </Package>
+    </Packages>
+</Project>
