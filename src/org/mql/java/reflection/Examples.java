@@ -11,8 +11,24 @@ import org.mql.java.ui.UMLDiagramViewer;
 import org.mql.java.xml.XMLWriter;
 
 public class Examples {
-    public static void main(String[] args) {
-        String projectPath = "C:\\Users\\user\\eclipse-workspace\\p04-java-xml-parsers"; // Chemin vers le projet
+	
+	public Examples() {
+		exp01();
+	}
+	
+    private void exp01() {
+    	
+    	      String projectPath = "C:\\Users\\user\\eclipse-workspace\\tests-relations"; 
+    	      Project project = Extractor.extractProject(projectPath); 
+
+    	      SwingUtilities.invokeLater(() -> { 
+    	         UMLDiagramViewer viewer = new UMLDiagramViewer(project); 
+    	         viewer.setVisible(true); 
+    	      });
+    	   }
+    	
+    private void exp02() {
+    	String projectPath = "C:\\Users\\user\\eclipse-workspace\\tests-relations"; // Chemin vers le projet
         String xmlFilePath = "C:\\Users\\user\\eclipse-workspace\\UML-Diagrams-Generator\\ressources\\output.xml";
 
         // Extraction des informations du projet
@@ -57,4 +73,11 @@ public class Examples {
             viewer.setVisible(true);
         });
     }
+
+		
+	
+	public static void main(String[] args) {
+        new Examples();
+   }
+	
 }

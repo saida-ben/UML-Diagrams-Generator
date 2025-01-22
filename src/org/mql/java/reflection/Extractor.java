@@ -6,7 +6,9 @@ import java.lang.reflect.*;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLClassLoader;
+import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.mql.java.models.*;
@@ -91,36 +93,62 @@ public class Extractor {
 
 
    // Extrait les informations d'une classe donnée
-   private static ClassInfo extractClass(Class<?> clazz) {
-	   ClassInfo classInfo = new ClassInfo(clazz.getSimpleName(), clazz.isInterface(), clazz.isEnum());
+private static ClassInfo extractClass(Class<?> clazz) {
+    ClassInfo classInfo = new ClassInfo(clazz.getSimpleName(), clazz.isInterface(), clazz.isEnum());
 
-       if (clazz.getSuperclass() != null) { // Récupère la superclasse si elle existe
-           classInfo.setSuperclass(clazz.getSuperclass().getName());
-       }
+    // Héritage
+    if (clazz.getSuperclass() != null && !clazz.getSuperclass().equals(Object.class)) {
+        classInfo.setSuperclass(clazz.getSuperclass().getSimpleName());
+        Relation inheritanceRelation = new Relation(clazz.getSimpleName(), clazz.getSuperclass().getSimpleName(), "Inheritance");
+        classInfo.addRelation(inheritanceRelation);
+    }
 
-       for (Class<?> iface : clazz.getInterfaces()) { // Récupère les interfaces implémentées
-           classInfo.addInterface(iface.getName());
-       }
+    // Implémentation d'interfaces
+    for (Class<?> iface : clazz.getInterfaces()) {
+        classInfo.addInterface(iface.getSimpleName());
+        Relation interfaceRelation = new Relation(clazz.getSimpleName(), iface.getSimpleName(), "Implements");
+        classInfo.addRelation(interfaceRelation);
+    }
 
-       for (Field field : clazz.getDeclaredFields()) { // Récupère les champs de la classe
-           classInfo.addField(new FieldModel(field.getName(), field.getType().getName()));
-       }
+    // Champs pour association, agrégation et composition
+    for (Field field : clazz.getDeclaredFields()) {
+        String fieldType = field.getType().getSimpleName();
 
-       for (Method method : clazz.getDeclaredMethods()) { // Récupère les méthodes de la classe
-    	   MethodInfo methodInfo = new MethodInfo(method.getName(), method.getReturnType().getName());
-           for (Parameter param : method.getParameters()) { // Récupère les paramètres de la méthode
-               methodInfo.addParameter(param.getType().getName());
-           }
-           classInfo.addMethod(methodInfo);
-       }
+        // Vérifier si le champ est une collection (agrégation)
+        if (Collection.class.isAssignableFrom(field.getType())) {
+            // Agrégation (exemple : List<Book>)
+            ParameterizedType genericType = (ParameterizedType) field.getGenericType();
+            Class<?> genericClass = (Class<?>) genericType.getActualTypeArguments()[0];
+            Relation aggregationRelation = new Relation(clazz.getSimpleName(), genericClass.getSimpleName(), "Aggregation");
+            classInfo.addRelation(aggregationRelation);
+        } else if (!field.getType().isPrimitive() && !fieldType.equals("String")) {
+            // Composition ou association simple
+            if (field.getDeclaringClass().equals(clazz)) {
+                // Si le champ est déclaré dans la classe actuelle, on considère cela comme une composition
+                Relation compositionRelation = new Relation(clazz.getSimpleName(), fieldType, "Composition");
+                classInfo.addRelation(compositionRelation);
+            } else {
+                // Sinon, c'est une association simple
+                Relation associationRelation = new Relation(clazz.getSimpleName(), fieldType, "Association");
+                classInfo.addRelation(associationRelation);
+            }
+        }
 
-       for (Annotation annotation : clazz.getAnnotations()) { // Récupère les annotations présentes sur la classe
-           classInfo.addAnnotation(new AnnotationInfo(annotation.annotationType().getSimpleName()));
-       }
+        // Ajouter les attributs à la classe
+        classInfo.addField(new FieldModel(field.getName(), fieldType));
+    }
 
-       return classInfo; // Retourne l'objet ClassModel rempli avec toutes les informations extraites
-   }
+    // Méthodes
+    for (Method method : clazz.getDeclaredMethods()) {
+        MethodInfo methodInfo = new MethodInfo(method.getName(), method.getReturnType().getSimpleName());
+        for (Parameter param : method.getParameters()) {
+            methodInfo.addParameter(param.getType().getSimpleName());
+        }
+        classInfo.addMethod(methodInfo);
+    }
 
+    return classInfo;
+}
    private static String convertToQualifiedName(String filePath, String baseDirectory) {
 	    // Supprime le chemin de base
 	    String relativePath = filePath.substring(baseDirectory.length() + 1);
