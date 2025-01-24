@@ -14,6 +14,7 @@ public class ClassInfo {
     private List<AnnotationInfo> annotations;
     private List<Relation> relations; // Ajouter une liste pour les relations
 
+ 
     public ClassInfo(String name, boolean isInterface, boolean isEnum) {
         this.name = name;
         this.isInterface = isInterface;
@@ -23,8 +24,9 @@ public class ClassInfo {
         this.methods = new ArrayList<>();
         this.annotations = new ArrayList<>();
         this.relations = new ArrayList<>(); // Initialiser la liste des relations
-    }
 
+    }
+  
     public void setSuperclass(String superclass) {
         this.superclass = superclass;
     }
@@ -45,9 +47,13 @@ public class ClassInfo {
         annotations.add(annotation);
     }
 
-    public void addRelation(Relation relation) { // Méthode pour ajouter une relation
-        relations.add(relation);
+    public void addRelation(Relation relation) {
+        if (this.relations == null) {
+            this.relations = new ArrayList<>();
+        }
+        this.relations.add(relation);
     }
+
 
     public String getName() {
         return name;

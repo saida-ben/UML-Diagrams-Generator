@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<XMI xmi.version="2.1" xmlns:xmi="http://www.omg.org/XMI" xmlns:uml="http://www.omg.org/spec/UML/20090901">
+  <uml:Package name="org.mql.java.xml">
+    <uml:Class name="AuthorsParser">
+      <uml:Operation name="parse">
+        <uml:Parameter name="arg0" type="String"/>
+      </uml:Operation>
+    </uml:Class>
+    <uml:Class name="Examples">
+      <uml:Operation name="main">
+        <uml:Parameter name="arg0" type="String[]"/>
+      </uml:Operation>
+      <uml:Operation name="exp01">
+      </uml:Operation>
+    </uml:Class>
+    <uml:Class name="XMLNode">
+      <uml:Property name="node" type="Node"/>
+      <uml:Operation name="child">
+        <uml:Parameter name="arg0" type="String"/>
+      </uml:Operation>
+      <uml:Operation name="getName">
+      </uml:Operation>
+      <uml:Operation name="getValue">
+      </uml:Operation>
+      <uml:Operation name="attribute">
+        <uml:Parameter name="arg0" type="String"/>
+      </uml:Operation>
+      <uml:Operation name="intAttribute">
+        <uml:Parameter name="arg0" type="String"/>
+      </uml:Operation>
+      <uml:Operation name="children">
+      </uml:Operation>
+    </uml:Class>
+    <uml:Class name="XMLNode2">
+      <uml:Property name="node" type="Node"/>
+      <uml:Operation name="child">
+        <uml:Parameter name="arg0" type="String"/>
+      </uml:Operation>
+      <uml:Operation name="getName">
+      </uml:Operation>
+      <uml:Operation name="getValue">
+      </uml:Operation>
+      <uml:Operation name="setValue">
+        <uml:Parameter name="arg0" type="String"/>
+      </uml:Operation>
+      <uml:Operation name="getAttributes">
+      </uml:Operation>
+      <uml:Operation name="attribute">
+        <uml:Parameter name="arg0" type="String"/>
+      </uml:Operation>
+      <uml:Operation name="removeChild">
+        <uml:Parameter name="arg0" type="String"/>
+      </uml:Operation>
+      <uml:Operation name="intAttribute">
+        <uml:Parameter name="arg0" type="String"/>
+      </uml:Operation>
+      <uml:Operation name="getChildrenText">
+      </uml:Operation>
+      <uml:Operation name="hasAttribute">
+        <uml:Parameter name="arg0" type="String"/>
+      </uml:Operation>
+      <uml:Operation name="removeAttribute">
+        <uml:Parameter name="arg0" type="String"/>
+      </uml:Operation>
+      <uml:Operation name="childAtIndex">
+        <uml:Parameter name="arg0" type="int"/>
+      </uml:Operation>
+      <uml:Operation name="children">
+      </uml:Operation>
+    </uml:Class>
+  </uml:Package>
+  <uml:Package name="org.mql.java.xml.models">
+    <uml:Class name="Author">
+      <uml:Property name="id" type="int"/>
+      <uml:Property name="name" type="String"/>
+      <uml:Property name="birthday" type="Date"/>
+      <uml:Property name="country" type="String"/>
+      <uml:Property name="technology" type="String"/>
+      <uml:Operation name="getName">
+      </uml:Operation>
+      <uml:Operation name="toString">
+      </uml:Operation>
+      <uml:Operation name="setName">
+        <uml:Parameter name="arg0" type="String"/>
+      </uml:Operation>
+      <uml:Operation name="getId">
+      </uml:Operation>
+      <uml:Operation name="setBirthday">
+        <uml:Parameter name="arg0" type="Date"/>
+      </uml:Operation>
+      <uml:Operation name="getBirthday">
+      </uml:Operation>
+      <uml:Operation name="getTechnology">
+      </uml:Operation>
+      <uml:Operation name="setTechnology">
+        <uml:Parameter name="arg0" type="String"/>
+      </uml:Operation>
+      <uml:Operation name="setId">
+        <uml:Parameter name="arg0" type="int"/>
+      </uml:Operation>
+      <uml:Operation name="setCountry">
+        <uml:Parameter name="arg0" type="String"/>
+      </uml:Operation>
+      <uml:Operation name="getCountry">
+      </uml:Operation>
+    </uml:Class>
+    <uml:Class name="Date">
+      <uml:Property name="day" type="int"/>
+      <uml:Property name="month" type="int"/>
+      <uml:Property name="year" type="int"/>
+      <uml:Operation name="toString">
+      </uml:Operation>
+      <uml:Operation name="getMonth">
+      </uml:Operation>
+      <uml:Operation name="setDay">
+        <uml:Parameter name="arg0" type="int"/>
+      </uml:Operation>
+      <uml:Operation name="getYear">
+      </uml:Operation>
+      <uml:Operation name="setYear">
+        <uml:Parameter name="arg0" type="int"/>
+      </uml:Operation>
+      <uml:Operation name="setMonth">
+        <uml:Parameter name="arg0" type="int"/>
+      </uml:Operation>
+      <uml:Operation name="getDay">
+      </uml:Operation>
+    </uml:Class>
+  </uml:Package>
+</XMI>

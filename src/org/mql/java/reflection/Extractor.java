@@ -93,6 +93,7 @@ public class Extractor {
 
 
    // Extrait les informations d'une classe donnée
+// Extrait les informations d'une classe donnée
 private static ClassInfo extractClass(Class<?> clazz) {
     ClassInfo classInfo = new ClassInfo(clazz.getSimpleName(), clazz.isInterface(), clazz.isEnum());
 
@@ -142,8 +143,11 @@ private static ClassInfo extractClass(Class<?> clazz) {
     for (Method method : clazz.getDeclaredMethods()) {
         MethodInfo methodInfo = new MethodInfo(method.getName(), method.getReturnType().getSimpleName());
         for (Parameter param : method.getParameters()) {
-            methodInfo.addParameter(param.getType().getSimpleName());
+            String paramName = param.getName(); // Nom du paramètre (peut être "arg0", "arg1", etc. selon la réflexion)
+            String paramType = param.getType().getSimpleName(); // Type du paramètre
+            methodInfo.addParameter(new ParameterInfo(paramName, paramType));
         }
+
         classInfo.addMethod(methodInfo);
     }
 

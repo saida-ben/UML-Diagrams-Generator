@@ -6,7 +6,8 @@ import java.util.List;
 public class MethodInfo {
     private String name;
     private String returnType;
-    private List<String> parameters;
+    private List<ParameterInfo> parameters;
+
 
     public MethodInfo(String name, String returnType) {
         this.name = name;
@@ -14,7 +15,7 @@ public class MethodInfo {
         this.parameters = new ArrayList<>();
     }
 
-    public void addParameter(String parameterType) {
+    public void addParameter(ParameterInfo parameterType) {
         parameters.add(parameterType);
     }
 
@@ -26,7 +27,7 @@ public class MethodInfo {
         return returnType;
     }
 
-    public List<String> getParameters() {
+    public List<ParameterInfo> getParameters() {
         return parameters;
     }
 }

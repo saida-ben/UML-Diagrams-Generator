@@ -1,64 +1,43 @@
 package org.mql.java.models;
 
 public class Relation {
-    private String source; // Nom de la classe source
-    private String target; // Nom de la classe cible
-    private String type;   // Type de relation : Association, Aggregation, Composition, Inheritance, Realization
-    private String label;  // Étiquette optionnelle pour la relation (ex. multiplicité)
+    private String source;
+    private String target;
+    private String type;
+    private String label;
 
+    // Constructor without label
+
+
+    // Constructor with label
     public Relation(String source, String target, String type) {
         this.source = source;
         this.target = target;
         this.type = type;
+        this.label = "";
     }
 
-    public Relation(String source, String target, String type, String label) {
-        this.source = source;
-        this.target = target;
-        this.type = type;
-        this.label = label;
-    }
-
-    // Getters et Setters
+    // Getters
     public String getSource() {
         return source;
-    }
-
-    public void setSource(String source) {
-        this.source = source;
     }
 
     public String getTarget() {
         return target;
     }
 
-    public void setTarget(String target) {
-        this.target = target;
-    }
-
     public String getType() {
         return type;
     }
 
-    public void setType(String type) {
-        this.type = type;
-    }
-
     public String getLabel() {
-        return label;
+        return label; // Ensure this method exists
     }
 
-    public void setLabel(String label) {
-        this.label = label;
-    }
-
+    // Optional: Override toString for better debugging
     @Override
+  
     public String toString() {
-        return "RelationModel{" +
-                "source='" + source + '\'' +
-                ", target='" + target + '\'' +
-                ", type='" + type + '\'' +
-                ", label='" + label + '\'' +
-                '}';
+        return source + " -> " + target + " (" + type + ")";
     }
 }

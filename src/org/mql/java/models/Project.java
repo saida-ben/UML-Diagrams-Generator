@@ -6,6 +6,7 @@ import java.util.List;
 public class Project {
     private String name;
     private List<PackageInfo> packages;
+    private List<ClassInfo> classes;
 
     public Project(String name) {
         this.name = name;
@@ -22,5 +23,13 @@ public class Project {
 
     public List<PackageInfo> getPackages() {
         return packages;
+    }
+    public void printRelations() {
+        for (ClassInfo classInfo : classes) {
+            System.out.println("Relations pour la classe " + classInfo.getClass().getName() + ": ");
+            for (MethodInfo method : classInfo.getMethods()) {
+                System.out.println("- " + method.getClass().getName());
+            }
+        }
     }
 }
