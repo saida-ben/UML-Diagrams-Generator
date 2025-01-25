@@ -6,10 +6,7 @@ public class Relation {
     private String type;
     private String label;
 
-    // Constructor without label
 
-
-    // Constructor with label
     public Relation(String source, String target, String type) {
         this.source = source;
         this.target = target;
@@ -17,7 +14,6 @@ public class Relation {
         this.label = "";
     }
 
-    // Getters
     public String getSource() {
         return source;
     }
@@ -31,12 +27,10 @@ public class Relation {
     }
 
     public String getLabel() {
-        return label; // Ensure this method exists
+        return label; 
     }
 
-    // Optional: Override toString for better debugging
-    @Override
-  
+    @Override  
     public String toString() {
         return source + " -> " + target + " (" + type + ")";
     }

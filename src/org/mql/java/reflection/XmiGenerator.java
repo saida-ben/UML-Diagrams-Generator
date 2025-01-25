@@ -3,17 +3,7 @@ package org.mql.java.reflection;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.List;
-
-
-import org.mql.java.models.AttributeInfo;
-import org.mql.java.models.ClassInfo;
-import org.mql.java.models.FieldModel;
-import org.mql.java.models.MethodInfo;
-import org.mql.java.models.PackageInfo;
-import org.mql.java.models.ParameterInfo;
-import org.mql.java.models.Project;
-import org.mql.java.models.Relation;
+import org.mql.java.models.*;
 
 public class XmiGenerator {
 
@@ -46,44 +36,44 @@ public class XmiGenerator {
 
             // Parcourir les classes
             for (ClassInfo cls : pkg.getClasses()) {
-                xmiContent.append("    <uml:Class name=\"").append(cls.getName()).append("\">\n");
+                xmiContent.append("<uml:Class name=\"").append(cls.getName()).append("\">\n");
 
                 // Ajouter les attributs
                 for (FieldModel attr : cls.getFields()) {
-                    xmiContent.append("      <uml:Property name=\"").append(attr.getName())
+                    xmiContent.append("<uml:Property name=\"").append(attr.getName())
                               .append("\" type=\"").append(attr.getType()).append("\"/>\n");
                 }
 
                 // Ajouter les méthodes
                 for (MethodInfo method : cls.getMethods()) {
-                    xmiContent.append("      <uml:Operation name=\"").append(method.getName()).append("\">\n");
+                    xmiContent.append("<uml:Operation name=\"").append(method.getName()).append("\">\n");
 
                     // Ajouter les paramètres de méthode
                     for (ParameterInfo param : method.getParameters()) {
-                        xmiContent.append("        <uml:Parameter name=\"").append(param.getName())
+                        xmiContent.append("<uml:Parameter name=\"").append(param.getName())
                                   .append("\" type=\"").append(param.getType()).append("\"/>\n");
                     }
 
-                    xmiContent.append("      </uml:Operation>\n");
+                    xmiContent.append("</uml:Operation>\n");
                 }
 
-                xmiContent.append("    </uml:Class>\n");
+                xmiContent.append("</uml:Class>\n");
             }
 
             // Ajouter les relations
             for (Relation rel : pkg.getRelations()) {
-                xmiContent.append("    <uml:Association name=\"").append(rel.getType()).append("\">\n");
-                xmiContent.append("      <uml:MemberEnd name=\"").append(rel.getSource()).append("\"/>\n");
-                xmiContent.append("      <uml:MemberEnd name=\"").append(rel.getTarget()).append("\"/>\n");
+                xmiContent.append("<uml:Association name=\"").append(rel.getType()).append("\">\n");
+                xmiContent.append("<uml:MemberEnd name=\"").append(rel.getSource()).append("\"/>\n");
+                xmiContent.append("<uml:MemberEnd name=\"").append(rel.getTarget()).append("\"/>\n");
 
                 if (rel.getLabel() != null && !rel.getLabel().isEmpty()) {
-                    xmiContent.append("      <uml:Label value=\"").append(rel.getLabel()).append("\"/>\n");
+                    xmiContent.append("<uml:Label value=\"").append(rel.getLabel()).append("\"/>\n");
                 }
 
-                xmiContent.append("    </uml:Association>\n");
+                xmiContent.append("</uml:Association>\n");
             }
 
-            xmiContent.append("  </uml:Package>\n");
+            xmiContent.append("</uml:Package>\n");
         }
 
         xmiContent.append("</XMI>");

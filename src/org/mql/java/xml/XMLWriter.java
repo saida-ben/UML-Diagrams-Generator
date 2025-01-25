@@ -72,7 +72,7 @@ public class XMLWriter {
 	        System.out.println("Fichier XML créé avec succès : " + filePath);
 	    } catch (Exception e) {
 	        System.err.println("Erreur lors de la création du fichier XML : " + e.getMessage());
-	        e.printStackTrace(); // Affiche la trace de l'exception pour débogage
+	        e.printStackTrace(); 
 	    }
 	}
 

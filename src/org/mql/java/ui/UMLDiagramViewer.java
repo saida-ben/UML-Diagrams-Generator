@@ -7,7 +7,9 @@ import java.util.*;
 import java.util.List;
 
 public class UMLDiagramViewer extends JFrame {
-    private static final int FRAME_WIDTH = 1200;
+
+	private static final long serialVersionUID = 1L;
+	private static final int FRAME_WIDTH = 1200;
     private static final int FRAME_HEIGHT = 700;
     private static final int CLASS_BOX_WIDTH = 250;
     private static final int CLASS_BOX_HEIGHT = 300;
@@ -36,7 +38,10 @@ public class UMLDiagramViewer extends JFrame {
     }
 
     private class DrawingPanel extends JPanel {
-        @Override
+
+		private static final long serialVersionUID = 1L;
+
+		@Override
         protected void paintComponent(Graphics g) {
             super.paintComponent(g);
             Graphics2D g2 = (Graphics2D) g;
@@ -70,7 +75,6 @@ public class UMLDiagramViewer extends JFrame {
                 for (ClassInfo cls : pkg.getClasses()) {
                     Point sourcePosition = classPositions.get(cls.getName());
 
-                    // Avoid overlap for all relations
                     List<Point> relationOffsets = new ArrayList<>();
 
                     for (Relation relation : cls.getRelations()) {

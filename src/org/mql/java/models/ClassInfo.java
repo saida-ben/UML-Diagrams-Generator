@@ -12,8 +12,7 @@ public class ClassInfo {
     private List<FieldModel> fields;
     private List<MethodInfo> methods;
     private List<AnnotationInfo> annotations;
-    private List<Relation> relations; // Ajouter une liste pour les relations
-
+    private List<Relation> relations; 
  
     public ClassInfo(String name, boolean isInterface, boolean isEnum) {
         this.name = name;
@@ -23,7 +22,7 @@ public class ClassInfo {
         this.fields = new ArrayList<>();
         this.methods = new ArrayList<>();
         this.annotations = new ArrayList<>();
-        this.relations = new ArrayList<>(); // Initialiser la liste des relations
+        this.relations = new ArrayList<>(); 
 
     }
   
@@ -79,7 +78,7 @@ public class ClassInfo {
         return annotations;
     }
 
-    public List<Relation> getRelations() { // Getter pour les relations
+    public List<Relation> getRelations() { 
         return relations;
     }
 }

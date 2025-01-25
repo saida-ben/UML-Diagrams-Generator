@@ -1,4 +1,4 @@
-package org.mql.java.parsers;
+package org.mql.java.xml;
 
 import org.mql.java.models.*;
 
